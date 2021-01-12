@@ -1,5 +1,6 @@
 package PageObjects;
 
+import com.sun.source.doctree.SummaryTree;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -17,10 +18,12 @@ public class CheckoutPage extends BasePage {
     private By cartNumberLocator = By.cssSelector("input[name='cardnumber']");
     private By expiryDateLocator = By.cssSelector("input[name='exp-date']");
     private By cvcNumberLocator = By.cssSelector("input[name='cvc']");
+    private By acceptStripeTermsLocator = By.cssSelector("#terms");
+    private By placeOrderLocator = By.cssSelector("#place_order");
 
     public CheckoutPage(WebDriver driver) {
         super(driver);
-        wait = new WebDriverWait(driver, 5);
+        wait = new WebDriverWait(driver, 8);
 
     }
 
@@ -78,5 +81,16 @@ public class CheckoutPage extends BasePage {
         driver.findElement(cvcNumberLocator).sendKeys(cvcNumber);
         driver.switchTo().defaultContent();
         return this;
+    }
+
+    public CheckoutPage acceptStripeTerms(){
+        driver.findElement(acceptStripeTermsLocator).click();
+        return this;
+    }
+
+    public SummaryPage placeOrder() {
+        driver.findElement(placeOrderLocator).click();
+        return new SummaryPage(driver);
+
     }
 }

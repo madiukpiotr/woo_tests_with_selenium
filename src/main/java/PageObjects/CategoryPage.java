@@ -29,11 +29,11 @@ public class CategoryPage extends BasePage {
         js.executeScript("window.scrollBy(0,500)");
         Thread.sleep(2000);
         wait.until(ExpectedConditions.elementToBeClickable(addToCartButton)).click();
-        return new CategoryPage(driver);
+        return this;
     }
     public CategoryPage viewCart() {
         wait.until(ExpectedConditions.elementToBeClickable(viewCardButton)).click();
-        return new CategoryPage(driver);
+        return this;
     }
 
     public int getAmountOfProducts() {

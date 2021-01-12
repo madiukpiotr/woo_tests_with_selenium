@@ -29,10 +29,9 @@ public class PaymentsTest extends BaseTest {
                     .typeEmail(email)
                     .typeCartNumber(cartNumber)
                     .typeCartExpiryDate(expiryDate)
-                    .typeCartCvc(cvcNumber);
-
-
-
+                    .typeCartCvc(cvcNumber)
+                    .acceptStripeTerms()
+                    .placeOrder();
 
     }
 }
