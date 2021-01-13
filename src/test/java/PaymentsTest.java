@@ -1,6 +1,9 @@
 import PageObjects.CheckoutPage;
 import PageObjects.ProductPage;
+import PageObjects.SummaryPage;
 import org.junit.jupiter.api.Test;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class PaymentsTest extends BaseTest {
 
@@ -17,6 +20,7 @@ public class PaymentsTest extends BaseTest {
 
     @Test
     public void orderProductWithoutAccountTest(){
+        SummaryPage summaryPage = new SummaryPage(driver);
         ProductPage productPage = new ProductPage(driver).goTo("https://fakestore.testelka.pl/product/egipt-el-gouna/");
         productPage.demoNotice.close();
         CheckoutPage checkoutPage = productPage.addToCart("1").viewCart().acceptAndGoToCheckout();
@@ -32,6 +36,8 @@ public class PaymentsTest extends BaseTest {
                     .typeCartCvc(cvcNumber)
                     .acceptStripeTerms()
                     .placeOrder();
-
+        String expectedMessage = "Dziękujemy. Otrzymaliśmy Twoje zamówienie.";
+        String actualMessage = summaryPage.getOrderMessage();
+        assertEquals(expectedMessage,actualMessage,"The expected successful order message is invalid");
     }
 }

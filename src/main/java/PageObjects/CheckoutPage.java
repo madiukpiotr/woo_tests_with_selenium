@@ -3,6 +3,7 @@ package PageObjects;
 import com.sun.source.doctree.SummaryTree;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 
@@ -21,10 +22,10 @@ public class CheckoutPage extends BasePage {
     private By acceptStripeTermsLocator = By.cssSelector("#terms");
     private By placeOrderLocator = By.cssSelector("#place_order");
 
+
     public CheckoutPage(WebDriver driver) {
         super(driver);
-        wait = new WebDriverWait(driver, 8);
-
+        wait = new WebDriverWait(driver, 10);
     }
 
     public CheckoutPage typeName(String name) {
@@ -64,6 +65,7 @@ public class CheckoutPage extends BasePage {
 
     public CheckoutPage typeCartNumber(String cartNumber) {
         driver.switchTo().frame(0);
+        wait.until(ExpectedConditions.elementToBeClickable(cartNumberLocator));
         driver.findElement(cartNumberLocator).sendKeys(cartNumber);
         driver.switchTo().defaultContent();
         return this;
@@ -90,7 +92,7 @@ public class CheckoutPage extends BasePage {
 
     public SummaryPage placeOrder() {
         driver.findElement(placeOrderLocator).click();
+        wait.until(ExpectedConditions.urlContains("/zamowienie/zamowienie-otrzymane"));
         return new SummaryPage(driver);
-
     }
 }
