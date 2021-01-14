@@ -1,0 +1,1 @@
+java -Dwebdriver.chrome.driver="C:\Users\Piotr\IdeaProjects\woo_tests_with_selenium\src\main\resources\chromedriver.exe" -jar selenium-server-standalone-3.141.59.jar -role node -nodeConfig nodeconfig.json
