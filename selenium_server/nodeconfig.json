@@ -8,7 +8,7 @@
   {
       "browserName": "chrome",
       "maxInstances": 3,
-    "version": "66"    
+      "version": "66"    
     },
     {
       "browserName": "operablink",

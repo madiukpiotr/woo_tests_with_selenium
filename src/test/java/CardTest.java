@@ -5,6 +5,7 @@ import PageObjects.ProductPage;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 
 public class CardTest extends BaseTest {
@@ -39,6 +40,7 @@ public class CardTest extends BaseTest {
         int amountOfProducts = categoryPage.addToCart().viewCart().getAmountOfProducts();
         assertEquals(1, amountOfProducts,"Expected item/s in cart is invalid ");
     }
+
     @Test
     public void addToCardTenProductsTest(){
         ProductPage productPage = new ProductPage(driver);
@@ -49,9 +51,32 @@ public class CardTest extends BaseTest {
         productPage.header.viewCart();
         int amountOfProducts = cartPage.getAmountOfProducts();
         assertEquals(9,amountOfProducts,"Expected amount of items in cart is invalid");
-
     }
 
+    @Test
+    public void changeItemsInCartTest(){
+        CartPage cartPage = new CartPage(driver);
+        ProductPage productPage = new ProductPage(driver).goTo("https://fakestore.testelka.pl/product/egipt-el-gouna/");
+        productPage.header.closeDemoNotification();
+        productPage.addToCart("1");
+        productPage.header.viewCart();
+        cartPage.changeProductQuantity("2").updateCart();
+        int quantityAfterChange = cartPage.getQuantityOfProducts();
+        assertTrue(quantityAfterChange == 2, "Expected quantity of product is invalid");
+    }
+
+    @Test
+    public void applyPromoCodeTest(){
+        CartPage cartPage = new CartPage(driver);
+        ProductPage productPage = new ProductPage(driver).goTo("https://fakestore.testelka.pl/product/egipt-el-gouna/");
+        productPage.header.closeDemoNotification();
+        productPage.addToCart("1");
+        productPage.header.viewCart();
+        double sumBeforeApplyPromoCode = cartPage.sumItems();
+        System.out.println(sumBeforeApplyPromoCode);
+
+
+    }
 
 }
 
