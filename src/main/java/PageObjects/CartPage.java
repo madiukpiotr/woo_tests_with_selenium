@@ -18,7 +18,7 @@ public class CartPage extends BasePage {
     private By goToCheckoutButtonLocator = By.cssSelector(".wc-forward");
     private By productQuantityLocator = By.cssSelector(".text");
     private By updateCartLocator = By.cssSelector("button[name=\"update_cart\"]");
-    private By sumLocator = By.cssSelector("bdi[class=\"selectorgadget_selected\"]");
+    private By sumLocator = By.xpath("//*[@id=\"post-6\"]/div/div/div[2]/div/table/tbody/tr[2]/td/strong/span/bdi/text()");
 
     public CartPage(WebDriver driver) {
         super(driver);

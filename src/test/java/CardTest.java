@@ -65,18 +65,16 @@ public class CardTest extends BaseTest {
         assertTrue(quantityAfterChange == 2, "Expected quantity of product is invalid");
     }
 
-    @Test
-    public void applyPromoCodeTest(){
-        CartPage cartPage = new CartPage(driver);
-        ProductPage productPage = new ProductPage(driver).goTo("https://fakestore.testelka.pl/product/egipt-el-gouna/");
-        productPage.header.closeDemoNotification();
-        productPage.addToCart("1");
-        productPage.header.viewCart();
-        double sumBeforeApplyPromoCode = cartPage.sumItems();
-        System.out.println(sumBeforeApplyPromoCode);
-
-
-    }
+//    @Test
+//    public void applyPromoCodeTest(){
+//        CartPage cartPage = new CartPage(driver);
+//        ProductPage productPage = new ProductPage(driver).goTo("https://fakestore.testelka.pl/product/egipt-el-gouna/");
+//        productPage.header.closeDemoNotification();
+//        productPage.addToCart("1");
+//        productPage.header.viewCart();
+//        double sumBeforeApplyPromoCode = cartPage.sumItems();
+//        System.out.println(sumBeforeApplyPromoCode);
+//    }
 
 }
 
