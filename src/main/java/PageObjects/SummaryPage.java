@@ -5,7 +5,7 @@ import org.openqa.selenium.WebDriver;
 
 public class SummaryPage extends BasePage {
 
-    private By orderMessageLocator = By.cssSelector(".woocommerce-thankyou-order-received");
+    private final By orderMessageLocator = By.cssSelector(".woocommerce-thankyou-order-received");
 
     public SummaryPage(WebDriver driver) {
         super(driver);

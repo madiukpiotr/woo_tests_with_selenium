@@ -13,12 +13,12 @@ import static java.lang.Integer.sum;
 
 public class CartPage extends BasePage {
 
-    private By cartItems = By.cssSelector(".cart_item");
-    private By cartAllProductQuantity = By.cssSelector(".text");
-    private By goToCheckoutButtonLocator = By.cssSelector(".wc-forward");
-    private By productQuantityLocator = By.cssSelector(".text");
-    private By updateCartLocator = By.cssSelector("button[name=\"update_cart\"]");
-    private By sumLocator = By.xpath("//*[@id=\"post-6\"]/div/div/div[2]/div/table/tbody/tr[2]/td/strong/span/bdi/text()");
+    private final By cartItems = By.cssSelector(".cart_item");
+    private final By cartAllProductQuantity = By.cssSelector(".text");
+    private final By goToCheckoutButtonLocator = By.cssSelector(".wc-forward");
+    private final By productQuantityLocator = By.cssSelector(".text");
+    private final By updateCartLocator = By.cssSelector("button[name=\"update_cart\"]");
+    private final By sumLocator = By.xpath("//*[@id=\"post-6\"]/div/div/div[2]/div/table/tbody/tr[2]/td/strong/span/bdi/text()");
 
     public CartPage(WebDriver driver) {
         super(driver);

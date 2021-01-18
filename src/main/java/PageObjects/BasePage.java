@@ -9,11 +9,12 @@ public abstract class BasePage {
     protected WebDriver driver;
     protected WebDriverWait wait;
 
+    private final By closeDemoLocator = By.cssSelector(".woocommerce-store-notice__dismiss-link");
+
     protected BasePage(WebDriver driver){
         this.driver = driver;
     }
 
-    private By closeDemoLocator = By.cssSelector(".woocommerce-store-notice__dismiss-link");
     public void closeDemoNotification(){
         driver.findElement(closeDemoLocator).click();
     }

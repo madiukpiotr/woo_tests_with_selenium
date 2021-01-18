@@ -8,16 +8,11 @@ import static org.junit.jupiter.api.Assertions.*;
 
 public class CardTest extends BaseTest {
 
-    private String url = "https://fakestore.testelka.pl/product/egipt-el-gouna/";
-    private String defaultProductUrl = "https://fakestore.testelka.pl/product/";
-    private String categoryURL = "https://fakestore.testelka.pl/product-category/windsurfing/";
-    private String[] productURLs = {"egipt-el-gouna/","fuerteventura-sotavento/","grecja-limnos/","windsurfing-w-karpathos/","windsurfing-w-lanzarote-costa-teguise/"
+    private final String url = "https://fakestore.testelka.pl/product/egipt-el-gouna/";
+    private final String defaultProductUrl = "https://fakestore.testelka.pl/product/";
+    private final String categoryURL = "https://fakestore.testelka.pl/product-category/windsurfing/";
+    private final String[] productURLs = {"egipt-el-gouna/","fuerteventura-sotavento/","grecja-limnos/","windsurfing-w-karpathos/","windsurfing-w-lanzarote-costa-teguise/"
     ,"wyspy-zielonego-przyladka-sal/","gran-koscielcow/","wspinaczka-island-peak/","wspinaczka-via-ferraty/"};
-
-    @Test
-    public void testFailTest(){
-        fail();
-    }
 
     @Test
     public void addToCardFromProductPageTest() {
@@ -65,7 +60,7 @@ public class CardTest extends BaseTest {
         productPage.header.viewCart();
         cartPage.changeProductQuantity("2").updateCart();
         int quantityAfterChange = cartPage.getQuantityOfProducts();
-        assertTrue(quantityAfterChange == 2, "Expected quantity of product is invalid");
+        assertEquals(quantityAfterChange, 2, "Expected quantity of product is invalid");
     }
 
 

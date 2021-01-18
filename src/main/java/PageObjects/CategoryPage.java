@@ -10,9 +10,9 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class CategoryPage extends BasePage {
 
-    private By addToCartButton = By.cssSelector("a[data-product_id=\"386\"]");
-    private By viewCardButton = By.cssSelector("a.added_to_cart");
-    private By cartItems = By.cssSelector(".cart_item");
+    private final By addToCartButton = By.cssSelector("a[data-product_id=\"386\"]");
+    private final By viewCardButton = By.cssSelector("a.added_to_cart");
+    private final By cartItems = By.cssSelector(".cart_item");
 
     public CategoryPage(WebDriver driver) {
         super(driver);
