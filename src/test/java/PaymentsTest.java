@@ -7,16 +7,16 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class PaymentsTest extends BaseTest {
 
-    private String name = "Peter";
-    private String lastName = "Tester";
-    private String street = "Testowa 23/32";
-    private String postalCode = "21-345";
-    private String city = "21-345";
-    private String phoneNumber = "123123123";
-    private String email = "test@123.com";
-    private String cartNumber = "4242424242424242";
-    private String expiryDate = "11/23";
-    private String cvcNumber = "123";
+    private final String name = "Peter";
+    private final String lastName = "Tester";
+    private final String street = "Testowa 23/32";
+    private final String postalCode = "21-345";
+    private final String city = "21-345";
+    private final String phoneNumber = "123123123";
+    private final String email = "test@123.com";
+    private final String cartNumber = "4242424242424242";
+    private final String expiryDate = "11/23";
+    private final String cvcNumber = "123";
 
     @Test
     public void orderProductWithoutAccountTest(){

@@ -10,9 +10,9 @@ public class ProductPage extends BasePage {
     public DemoFooterPage demoNotice;
     private WebDriverWait wait;
 
-    private By quantityField = By.cssSelector("input.qty");
-    private By addToCardButton = By.cssSelector("button[name='add-to-cart']");
-    private By viewCartButton = By.linkText("Zobacz koszyk");
+    private final By quantityField = By.cssSelector("input.qty");
+    private final By addToCardButton = By.cssSelector("button[name='add-to-cart']");
+    private final By viewCartButton = By.linkText("Zobacz koszyk");
 
     public ProductPage(WebDriver driver) {
         super(driver);

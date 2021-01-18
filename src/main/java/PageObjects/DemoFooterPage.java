@@ -8,10 +8,9 @@ public class DemoFooterPage extends BasePage {
         super(driver);
     }
 
-    private By closeDemoLocator = By.cssSelector(".woocommerce-store-notice__dismiss-link");
+    private final By closeDemoLocator = By.cssSelector(".woocommerce-store-notice__dismiss-link");
 
-    public DemoFooterPage close(){
+    public void close(){
         driver.findElement(closeDemoLocator).click();
-        return this;
     }
 }

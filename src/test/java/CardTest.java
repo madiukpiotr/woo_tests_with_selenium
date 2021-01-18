@@ -1,11 +1,9 @@
 import PageObjects.CartPage;
 import PageObjects.CategoryPage;
-import PageObjects.HeaderPage;
 import PageObjects.ProductPage;
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assertions.*;
 
 
 public class CardTest extends BaseTest {
@@ -15,6 +13,11 @@ public class CardTest extends BaseTest {
     private String categoryURL = "https://fakestore.testelka.pl/product-category/windsurfing/";
     private String[] productURLs = {"egipt-el-gouna/","fuerteventura-sotavento/","grecja-limnos/","windsurfing-w-karpathos/","windsurfing-w-lanzarote-costa-teguise/"
     ,"wyspy-zielonego-przyladka-sal/","gran-koscielcow/","wspinaczka-island-peak/","wspinaczka-via-ferraty/"};
+
+    @Test
+    public void testFailTest(){
+        fail();
+    }
 
     @Test
     public void addToCardFromProductPageTest() {
@@ -64,6 +67,7 @@ public class CardTest extends BaseTest {
         int quantityAfterChange = cartPage.getQuantityOfProducts();
         assertTrue(quantityAfterChange == 2, "Expected quantity of product is invalid");
     }
+
 
 //    @Test
 //    public void applyPromoCodeTest(){

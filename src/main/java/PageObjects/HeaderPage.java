@@ -8,7 +8,7 @@ public class HeaderPage extends BasePage {
         super(driver);
     }
 
-    private By cartLocator = By.cssSelector(".cart-contents");
+    private final By cartLocator = By.cssSelector(".cart-contents");
 
     public void viewCart(){
         driver.findElement(cartLocator).click();

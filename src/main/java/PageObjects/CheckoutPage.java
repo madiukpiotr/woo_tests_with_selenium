@@ -9,18 +9,18 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class CheckoutPage extends BasePage {
 
-    private By nameLocator = By.cssSelector("#billing_first_name");
-    private By lastNameLocator = By.cssSelector("#billing_last_name");
-    private By streetLocator = By.cssSelector("#billing_address_1");
-    private By postalCodeLocator = By.cssSelector("#billing_postcode");
-    private By cityLocator = By.cssSelector("#billing_city");
-    private By phoneNumberLocator = By.cssSelector("#billing_phone");
-    private By emailLocator = By.cssSelector("#billing_email");
-    private By cartNumberLocator = By.cssSelector("input[name='cardnumber']");
-    private By expiryDateLocator = By.cssSelector("input[name='exp-date']");
-    private By cvcNumberLocator = By.cssSelector("input[name='cvc']");
-    private By acceptStripeTermsLocator = By.cssSelector("#terms");
-    private By placeOrderLocator = By.cssSelector("#place_order");
+    private final By nameLocator = By.cssSelector("#billing_first_name");
+    private final By lastNameLocator = By.cssSelector("#billing_last_name");
+    private final By streetLocator = By.cssSelector("#billing_address_1");
+    private final By postalCodeLocator = By.cssSelector("#billing_postcode");
+    private final By cityLocator = By.cssSelector("#billing_city");
+    private final By phoneNumberLocator = By.cssSelector("#billing_phone");
+    private final By emailLocator = By.cssSelector("#billing_email");
+    private final By cartNumberLocator = By.cssSelector("input[name='cardnumber']");
+    private final By expiryDateLocator = By.cssSelector("input[name='exp-date']");
+    private final By cvcNumberLocator = By.cssSelector("input[name='cvc']");
+    private final By acceptStripeTermsLocator = By.cssSelector("#terms");
+    private final By placeOrderLocator = By.cssSelector("#place_order");
 
 
     public CheckoutPage(WebDriver driver) {
