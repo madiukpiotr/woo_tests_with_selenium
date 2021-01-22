@@ -19,7 +19,7 @@ public class CategoryPage extends BasePage {
 
     public CategoryPage goTo(String url) {
         driver.get(url);
-        return new CategoryPage(driver);
+        return this;
     }
 
     public CategoryPage addToCart() throws InterruptedException {
