@@ -10,7 +10,7 @@ import java.net.URL;
 
 public class DriverFactory {
     WebDriver driver;
-    private String hubUrl = "http://192.168.8.114:4444/wd/hub";
+    private String hubUrl = "http://192.168.88.100:4444/wd/hub";
 
     public WebDriver create(Browser browserType) throws MalformedURLException {
         switch (browserType) {

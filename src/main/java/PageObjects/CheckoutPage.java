@@ -1,6 +1,5 @@
 package PageObjects;
 
-import com.sun.source.doctree.SummaryTree;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -16,11 +15,12 @@ public class CheckoutPage extends BasePage {
     private final By cityLocator = By.cssSelector("#billing_city");
     private final By phoneNumberLocator = By.cssSelector("#billing_phone");
     private final By emailLocator = By.cssSelector("#billing_email");
-    private final By cartNumberLocator = By.cssSelector("input[name='cardnumber']");
+    private final By cartNumberLocator = By.cssSelector("input[autocomplete=\"cc-number\"]");
     private final By expiryDateLocator = By.cssSelector("input[name='exp-date']");
     private final By cvcNumberLocator = By.cssSelector("input[name='cvc']");
     private final By acceptStripeTermsLocator = By.cssSelector("#terms");
     private final By placeOrderLocator = By.cssSelector("#place_order");
+    private final By errorList = By.cssSelector("ul.woocommerce-error");
 
 
     public CheckoutPage(WebDriver driver) {
@@ -63,9 +63,10 @@ public class CheckoutPage extends BasePage {
         return this;
     }
 
-    public CheckoutPage typeCartNumber(String cartNumber) {
+    public CheckoutPage typeCartNumber(String cartNumber) throws InterruptedException {
+        Thread.sleep(4000);
         driver.switchTo().frame(0);
-        wait.until(ExpectedConditions.elementToBeClickable(cartNumberLocator));
+        Thread.sleep(4000);
         driver.findElement(cartNumberLocator).sendKeys(cartNumber);
         driver.switchTo().defaultContent();
         return this;
@@ -94,5 +95,12 @@ public class CheckoutPage extends BasePage {
         driver.findElement(placeOrderLocator).click();
         wait.until(ExpectedConditions.urlContains("/zamowienie/zamowienie-otrzymane"));
         return new SummaryPage(driver);
+    }
+
+    public String getErrorMessage() throws InterruptedException {
+        Thread.sleep(2000);
+        wait.until(ExpectedConditions.elementToBeClickable(placeOrderLocator));
+        driver.findElement(placeOrderLocator).click();
+        return wait.until(ExpectedConditions.presenceOfElementLocated(errorList)).getText();
     }
 }

@@ -8,11 +8,12 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 public class ProductPage extends BasePage {
     public HeaderPage header;
     public DemoFooterPage demoNotice;
-    private WebDriverWait wait;
+    private final WebDriverWait wait;
 
     private final By quantityField = By.cssSelector("input.qty");
     private final By addToCardButton = By.cssSelector("button[name='add-to-cart']");
     private final By viewCartButton = By.linkText("Zobacz koszyk");
+
 
     public ProductPage(WebDriver driver) {
         super(driver);

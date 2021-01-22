@@ -63,6 +63,11 @@ public class CardTest extends BaseTest {
         assertEquals(quantityAfterChange, 2, "Expected quantity of product is invalid");
     }
 
+    @Test
+    public void testFail(){
+        fail();
+    }
+
 
 //    @Test
 //    public void applyPromoCodeTest(){

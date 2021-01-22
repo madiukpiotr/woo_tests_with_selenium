@@ -17,6 +17,7 @@ public abstract class BasePage {
 
     public void closeDemoNotification(){
         driver.findElement(closeDemoLocator).click();
+
     }
 
 }
