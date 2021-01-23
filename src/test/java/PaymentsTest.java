@@ -50,8 +50,7 @@ public class PaymentsTest extends BaseTest {
         productPage.demoNotice.closeDemoNotification();
         productPage.addToCart("1").viewCart();
         cartPage.acceptAndGoToCheckout();
-        checkoutPage.typeCartNumber(cartNumber).typeCartCvc(cvcNumber).typeCartExpiryDate(expiryDate).getErrorMessage();
-        String errorMessage = checkoutPage.getErrorMessage();
+        String errorMessage = checkoutPage.typeCartNumber(cartNumber).typeCartCvc(cvcNumber).typeCartExpiryDate(expiryDate).getErrorMessage();
         assertAll(
                 ()->assertTrue(errorMessage.contains("Imię płatnika jest wymaganym polem."),
                         "Error message doesn't contain lack of first name error."),
