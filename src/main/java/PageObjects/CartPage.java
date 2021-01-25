@@ -9,6 +9,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import java.text.DecimalFormat;
 import java.text.DecimalFormatSymbols;
 import java.text.NumberFormat;
+import java.text.ParseException;
 import java.util.List;
 import java.util.Locale;
 
@@ -62,7 +63,7 @@ public class CartPage extends BasePage  {
         return this;
     }
 
-    public String sumItems() {
+    public String sumItems() throws ParseException {
         NumberFormat numberFormat = new DecimalFormat("¤#.00", new DecimalFormatSymbols(Locale.UK));
         numberFormat.parse("£123.5678");
         String sumString = driver.findElement(sumLocator).getText();
