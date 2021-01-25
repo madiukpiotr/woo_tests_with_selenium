@@ -1,3 +1,6 @@
 target
 *.iml
 debug.log
+uiDesigner.xml
+
+.idea/

@@ -6,19 +6,23 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import java.text.DecimalFormat;
+import java.text.DecimalFormatSymbols;
+import java.text.NumberFormat;
 import java.util.List;
+import java.util.Locale;
 
 import static java.lang.Integer.parseInt;
 import static java.lang.Integer.sum;
 
-public class CartPage extends BasePage {
+public class CartPage extends BasePage  {
 
     private final By cartItems = By.cssSelector(".cart_item");
     private final By cartAllProductQuantity = By.cssSelector(".text");
     private final By goToCheckoutButtonLocator = By.cssSelector(".wc-forward");
     private final By productQuantityLocator = By.cssSelector(".text");
     private final By updateCartLocator = By.cssSelector("button[name=\"update_cart\"]");
-    private final By sumLocator = By.xpath("//*[@id=\"post-6\"]/div/div/div[2]/div/table/tbody/tr[2]/td/strong/span/bdi/text()");
+    private final By sumLocator = By.xpath("//*[@id=\"post-6\"]/div/div/div[2]/div/table/tbody/tr[2]/td/strong/span/bdi");
 
     public CartPage(WebDriver driver) {
         super(driver);
@@ -58,9 +62,11 @@ public class CartPage extends BasePage {
         return this;
     }
 
-    public double sumItems() {
+    public String sumItems() {
+        NumberFormat numberFormat = new DecimalFormat("¤#.00", new DecimalFormatSymbols(Locale.UK));
+        numberFormat.parse("£123.5678");
         String sumString = driver.findElement(sumLocator).getText();
-        double sumInt = Double.parseDouble(sumString);
-        return sumInt;
+/*        double sumInt = Double.parseDouble(sumString);*/
+        return sumString;
     }
 }

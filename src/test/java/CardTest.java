@@ -3,6 +3,11 @@ import PageObjects.CategoryPage;
 import PageObjects.ProductPage;
 import org.junit.jupiter.api.Test;
 
+import java.text.DecimalFormat;
+import java.text.DecimalFormatSymbols;
+import java.text.NumberFormat;
+import java.util.Locale;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 
@@ -64,21 +69,16 @@ public class CardTest extends BaseTest {
     }
 
     @Test
-    public void testFail(){
-        fail();
+    public void applyPromoCodeTest(){
+        CartPage cartPage = new CartPage(driver);
+        ProductPage productPage = new ProductPage(driver).goTo("https://fakestore.testelka.pl/product/egipt-el-gouna/");
+        productPage.header.closeDemoNotification();
+        productPage.addToCart("1");
+        productPage.header.viewCart();
+        String sumBeforeApplyPromoCode = cartPage.sumItems();
+        double sumDouble = Double.parseDouble(sumBeforeApplyPromoCode);
+        System.out.println(sumDouble);
     }
-
-
-//    @Test
-//    public void applyPromoCodeTest(){
-//        CartPage cartPage = new CartPage(driver);
-//        ProductPage productPage = new ProductPage(driver).goTo("https://fakestore.testelka.pl/product/egipt-el-gouna/");
-//        productPage.header.closeDemoNotification();
-//        productPage.addToCart("1");
-//        productPage.header.viewCart();
-//        double sumBeforeApplyPromoCode = cartPage.sumItems();
-//        System.out.println(sumBeforeApplyPromoCode);
-//    }
 
 }
 

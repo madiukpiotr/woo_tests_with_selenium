@@ -8,7 +8,6 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import java.net.MalformedURLException;
 import java.util.concurrent.TimeUnit;
 
-//@ExtendWith(MyTestWatcher.class)
 public class BaseTest {
     protected RemoteWebDriver driver;
     protected WebDriverWait wait;
